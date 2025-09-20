@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="
+      playGame('heads');
+      ">heads
+    </button>
+
+    <button onclick="
+      playGame('tails');
+      ">tails
+    </button>
+
+    <script>
+      //8j.
+      const score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+      };
+
+      //8i.
+      function playGame(guess) {
+        const randomNumber = Math.random();
+      
+        const result = randomNumber < 0.5 ? 'heads' : 'tails';
+
+        guess === result ? console.log('You win!') : console.log('You lose!');
+
+        if (guess === result) {
+          score.wins += 1
+        }
+        else {
+          score.losses += 1;
+        }
+        console.log(score);
+
+        localStorage.setItem('score', JSON.stringify(score));
+      }     
+      
+      //8d.
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) {
+          return product1;
+        }
+        else {
+          return product2;
+        }
+      }
+      
+      //8a.
+      const product1 = {
+        name: 'basketball',
+        price: 2095
+      }
+      console.log(product1);
+
+      const product2 = {
+        name: 'baseball',
+        price: 1095
+      }     
+
+      console.log(comparePrice(product1, product2));
+      //8b.
+      product1.price += 500;
+      console.log(product1);
+
+      //8c.
+      product1['delivery-time'] = '3 days';
+      console.log(product1);
+
+      //8e.
+      function isSameProduct(product1, product2) {
+        if (product1.name === product2.name && product1.price === product2.price) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+
+      const product3 = {
+        name: 'basketball',
+        price: 2095
+      }
+      
+      const product4 = {
+        name: 'basketball',
+        price: 2095
+      }     
+
+      const product5 = {
+        name: 'socks',
+        price: 1090
+      };
+
+      console.log(isSameProduct(product3, product4));
+      console.log(isSameProduct(product3, product5));
+
+      //8f.
+      console.log('Good Morning'.toLowerCase());
+
+      //8g.
+      console.log('test'.repeat(2));
+    </script>
+  </body>
+</html>

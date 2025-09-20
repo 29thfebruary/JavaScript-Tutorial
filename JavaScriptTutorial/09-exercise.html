@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button>9a</button>
+    
+    <button class="js-second-button">9b</button>
+
+    <!--9c.-->
+    <p>
+      <button onclick="document.querySelector('.  js-user-choice').innerHTML = 'You chose: heads'">heads
+      </button>
+
+      <button onclick="document.querySelector('.js-user-choice').innerHTML = 'You chose: tails'">tails
+      </button>
+    </p>
+
+    <p class="js-user-choice"></p>
+
+    <!--9d.-->
+    <p>
+      <input class="js-input-button" 
+        onkeydown="if (event.key === 'Enter') {
+        displayName();
+      }">
+
+      <button onclick="
+        displayName();">Submit
+      </button>
+    </p>
+
+    <p class="js-user-name"></p>
+
+    <p>Amazon Shipping Calculator</p>
+
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeydown(event);">
+
+    <button onclick="
+      calculateTotal();
+      ">Calculate
+    </button>
+
+    <p class="js-total-cost"></p>
+
+    <!--9h.-->
+    <p><input placeholder="message" class="js-input" onkeyup=" const input = document.querySelector('.js-input');
+    document.querySelector('.js-message').innerHTML = input.value;">
+    </p>
+    <p class="js-message"></p>
+
+    <script>
+      //9a.
+      console.log(document.querySelector('button'));
+
+      //9b.
+      document.querySelector('.js-second-button')
+        .innerHTML = '9b done!';
+
+      //9f.
+      function displayName() {
+        const name = document.querySelector('.js-input-button');
+        document.querySelector('.js-user-name')
+          .innerHTML = `Your name is: ${name.value}`;
+      }
+
+      //9g.
+      function handleCostKeydown(event) {
+        if (event.key === 'Enter') 
+        {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = Number(inputElement.value) * 100;
+
+        if (cost < 4000) {
+          cost = cost + 1000;
+        }
+
+        document.querySelector('.js-total-cost')
+          .innerHTML = `$${cost / 100}`;
+      }
+    </script>
+  </body>
+</html>
